@@ -4,10 +4,10 @@ import { closeFailureIssueIfResolved } from '../worker/core';
 (async ()=>{
   console.log('=== MINIMAL CLOSE ISSUE TEST ===');
   
-  const calls: any[] = [];
-  const originalFetch = (globalThis as any).fetch;
+  const calls = [];
+  const originalFetch = globalThis.fetch;
   
-  (globalThis as any).fetch = async (url: string, init?: any) => {
+  globalThis.fetch = async (url, init) => {
     console.log(`FETCH: ${init?.method || 'GET'} ${url}`);
     calls.push({ url, method: init?.method || 'GET' });
     
@@ -19,11 +19,11 @@ import { closeFailureIssueIfResolved } from '../worker/core';
     return new Response('Not found', { status: 404 });
   };
 
-  const env: any = {
+  const env = {
     GITHUB_REPO: 'owner/repo',
     GITHUB_TOKEN: 'test',
     STATE_KV: {
-      get: async (key: string) => {
+  get: async (key) => {
         console.log(`KV.get(${key})`);
         if (key === 'consecutive_failures') return '0';
         if (key === 'failure_issue_number') return '123';
@@ -47,9 +47,9 @@ import { closeFailureIssueIfResolved } from '../worker/core';
     }
   } finally {
     if (originalFetch) {
-      (globalThis as any).fetch = originalFetch;
+      globalThis.fetch = originalFetch;
     } else {
-      delete (globalThis as any).fetch;
+      delete globalThis.fetch;
     }
   }
 })();
