@@ -10,26 +10,26 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "deploy:worker": "wrangler deploy",
-  "test": "node -e \"require('esbuild').buildSync({entryPoints:require('fs').readdirSync('tests').filter(f=>f.endsWith('.ts')).map(f=>'tests/'+f),outdir:'dist/tests',bundle:true,platform:'node',target:'node20'});\" && node -e \"for(const f of require('fs').readdirSync('dist/tests')) if(f.endsWith('.js')) require('./dist/tests/'+f)\""
+    "test": "node -e \"require('esbuild').buildSync({entryPoints:require('fs').readdirSync('tests').filter(f=>f.endsWith('.ts')).map(f=>'tests/'+f),outdir:'dist/tests',bundle:true,platform:'node',target:'node20'});\" && node -e \"for(const f of require('fs').readdirSync('dist/tests')) if(f.endsWith('.js')) require('./dist/tests/'+f)\""
   },
   "dependencies": {
+    "gray-matter": "4.0.3",
     "next": "15.5.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "gray-matter": "4.0.3"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/node": "20.12.7",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.25",
     "autoprefixer": "10.4.21",
+    "esbuild": "0.25.9",
     "eslint": "8.57.0",
     "eslint-config-next": "15.5.2",
     "postcss": "8.5.6",
+    "serve": "14.2.4",
     "tailwindcss": "3.4.13",
     "typescript": "5.4.5",
-    "serve": "14.2.4",
-    "wrangler": "4.33.0",
-    "esbuild": "0.25.9"
+    "wrangler": "^4.42.1"
   }
 }
