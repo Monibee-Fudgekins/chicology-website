@@ -1,3 +1,5 @@
+// Historical note (content/changelog.md was a single entry: 2025-08-20 Initial scaffold).
+// Future CI can append entries directly to this page or reintroduce storage if needed.
 export default function ChangelogPage() {
   return (
     <main className="mx-auto max-w-3xl p-6">
