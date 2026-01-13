@@ -11,7 +11,6 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',
-  distDir: 'dist',
   trailingSlash: true,
   images: {
     unoptimized: true,
