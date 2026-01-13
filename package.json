@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "deploy:worker": "wrangler deploy",
-    "test": "node -e \"require('esbuild').buildSync({entryPoints:require('fs').readdirSync('tests').filter(f=>f.endsWith('.ts')).map(f=>'tests/'+f),outdir:'dist/tests',bundle:true,platform:'node',target:'node20'});\" && node -e \"for(const f of require('fs').readdirSync('dist/tests')) if(f.endsWith('.js')) require('./dist/tests/'+f)\""
+    "test": "node scripts/run_tests.mjs"
   },
   "dependencies": {
     "gray-matter": "4.0.3",

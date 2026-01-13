@@ -20,7 +20,7 @@ import { closeFailureIssueIfResolved, closeDesignPauseIssueIfResolved } from './
   };
   const env: any = {
     GITHUB_REPO: 'owner/repo',
-    GITHUB_TOKEN: 't',
+    GH_PAT_PUBLISH: 't',
     STATE_KV: { get: async (k:string)=> kv[k], put: async (k:string,v:string)=>{ kv[k]=v; }, delete: async(k:string)=>{ delete kv[k]; } },
     ANALYTICS: { writeDataPoint: ()=>{} }
   };
