@@ -24,7 +24,7 @@
     "@types/react-dom": "18.2.25",
     "autoprefixer": "10.4.21",
     "esbuild": "0.25.9",
-    "eslint": "8.57.0",
+    "eslint": "^9.0.0",
     "eslint-config-next": "^16.0.0",
     "postcss": "8.5.6",
     "serve": "^14.2.5",

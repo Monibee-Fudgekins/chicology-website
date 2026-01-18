@@ -36,10 +36,6 @@ A fully autonomous Next.js website that evolves itself using AI.
 
 Daily automation runs exclusively via the Worker’s `scheduled(...)` handler.
 
-## Documentation
-
-Complete setup guides and technical details are in [`/docs`](./docs/).
-
 ---
 
 *This website literally programs itself. The AI creates content, reviews code, and deploys changes autonomously while maintaining safety guardrails.*
