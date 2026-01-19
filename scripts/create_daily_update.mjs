@@ -51,7 +51,7 @@ The autonomous AI system is functioning normally.
 }
 
 // If run directly, create today's update
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (fileURLToPath(import.meta.url) === process.argv[1]) {
   const dateArg = process.argv[2];
   const result = createDailyUpdate(dateArg);
   process.exit(0);

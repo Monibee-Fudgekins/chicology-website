@@ -71,3 +71,5 @@ console.log(`\nTests: ${passed} passed, ${failed} failed, ${passed + failed} tot
 if (failed > 0) {
   process.exit(1);
 }
+
+process.exit(0);
