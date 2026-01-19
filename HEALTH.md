@@ -4,6 +4,13 @@
 
 This document describes the health monitoring system for the autonomous AI website.
 
+> **Note:** The current implementation provides baseline monitoring endpoints that return healthy status (100% success rate). For production use with real metrics, these endpoints should be integrated with:
+> - Cloudflare KV or D1 for persistent storage
+> - AI worker integration to POST actual operational data
+> - Real-time calculation of success rates from worker operations
+>
+> Until integrated with the AI worker, these endpoints serve as a monitoring infrastructure baseline.
+
 ## Health Endpoints
 
 ### `/__health`

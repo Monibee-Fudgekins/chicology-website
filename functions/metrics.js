@@ -1,7 +1,17 @@
 // Cloudflare Pages Function for metrics
+// NOTE: This is a baseline implementation returning initial metrics (100% success).
+// For production use, this should be integrated with:
+// - Cloudflare KV or D1 for persistent storage
+// - Worker integration to track actual operations
+// - Real-time metric collection from AI operations
+//
+// Until integrated with real data, these metrics serve as a monitoring baseline.
+
 export async function onRequest(context) {
   const timestamp = Date.now();
   
+  // Baseline metrics - indicates monitoring infrastructure is ready
+  // In production, these would be calculated from actual operational data
   const metrics = `# HELP ai_worker_success_rate Success rate of AI worker operations
 # TYPE ai_worker_success_rate gauge
 ai_worker_success_rate 100
