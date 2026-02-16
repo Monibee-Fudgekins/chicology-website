@@ -39,3 +39,38 @@ Daily automation runs exclusively via the Worker’s `scheduled(...)` handler.
 ---
 
 *This website literally programs itself. The AI creates content, reviews code, and deploys changes autonomously while maintaining safety guardrails.*
+
+## Health Monitoring
+
+The system tracks AI operation success rates with automatic alerting:
+- **GOOD**: Success rate >= 85%
+- **WARNING**: Success rate < 85% but >= 60%
+- **CRITICAL**: Success rate < 60%
+
+See [HEALTH.md](./HEALTH.md) for detailed monitoring documentation and troubleshooting.
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build static site
+npm run build
+
+# Run tests
+npm test
+
+# Lint and type check
+npm run lint
+npm run typecheck
+```
+
+### Helper Scripts
+
+- `scripts/create_daily_update.mjs` - Generate daily blog posts
+- `scripts/run_tests.mjs` - Validate build and content
+- See [scripts/README.md](./scripts/README.md) for details
