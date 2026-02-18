@@ -12,7 +12,12 @@ type PostMeta = {
 
 function getAllPosts(): PostMeta[] {
   const dir = path.join(process.cwd(), 'content', 'blog');
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
+  
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
+  
+  const files = fs.readdirSync(dir).filter((f) => /\.(md|mdx)$/i.test(f));
   
   const posts = files.map((filename) => {
     const slug = filename.replace(/\.(md|mdx)$/i, '');
@@ -20,10 +25,20 @@ function getAllPosts(): PostMeta[] {
     const raw = fs.readFileSync(filePath, 'utf8');
     const { data } = matter(raw);
     
+    // Normalize date to ISO string format for consistent sorting
+    let dateStr = '';
+    if (data.date) {
+      if (data.date instanceof Date) {
+        dateStr = data.date.toISOString().split('T')[0];
+      } else {
+        dateStr = String(data.date);
+      }
+    }
+    
     return {
       slug,
       title: data.title || slug,
-      date: String(data.date || ''),
+      date: dateStr,
       summary: data.summary || '',
     };
   });
